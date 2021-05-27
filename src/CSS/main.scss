@@ -1,0 +1,58 @@
+.tittle, .mainField{
+    text-align: center;
+}
+fieldset{
+    border: none;
+    margin-top: 100px;
+}
+.select-button {
+    width: 200px;
+    padding: 10px;
+    border: thin solid black;
+    text-decoration: none;
+    cursor: pointer;
+    color: rebeccapurple;
+    font: 400 13.3333px Arial;
+    text-align: center;
+}
+.mainTable{
+    display: flex;
+    justify-content: center;
+}
+table {
+    border-spacing: 10px;
+}   
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+} 
+td, .legend {
+    width: 30px;
+    height: 30px;
+    border: thin solid black;
+}
+.legend{
+    margin: 0 5px 0 20px;
+    cursor: initial !important;
+}
+.empty{
+border: none;   
+}
+.free {
+    cursor: pointer;
+}
+.free:hover{
+    background-color: lighten( orange, 30%);
+}
+.reserved {
+    background-color: grey;
+}
+.selected{
+    background-color: orange;
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
