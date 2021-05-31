@@ -6,6 +6,7 @@ import { submit } from "./reservSlice";
 export default function ShowHall(){    
     const seats = useSelector(state => state.seats);
     const dispatch = useDispatch();
+    
 
     let {amount, near} = useParams();
     amount = Number(amount);
@@ -19,8 +20,8 @@ export default function ShowHall(){
             const {cords} = seats.find(item => item.id === val);
             return {id: val, cords};
         });
-        dispatch(submit(map));        
-        setTimeout(() => setRedirect(true), 1500);
+        dispatch(submit(map));   
+        setTimeout(() => setRedirect(true), 1200);
     }
 
     const handleClick = ev => {
@@ -82,27 +83,21 @@ export default function ShowHall(){
     }, [amount, near]);
 
     //  Wyświetlanie sali -----------------------------------------------------------
+
     const hall = [];
     for (let i = 0; i< arr.length; i++){
-        let row = [null];
+        let row = [];
         for (let j = 0; j<arr[i].length; j++){
             let cellClass = '';
-            if (!arr[i][j]) {cellClass = 'empty'
-            } else if (arr[i][j].reserved) {cellClass = 'reserved'
-              } else {
-                    cellClass = 'free';
-                    for (let k = 0; k<selected.length; k++){
-                        if (arr[i][j].id === selected[k]){
-                            cellClass = 'selected';
-                            break;
-                        }  
-                    }
-                }
+            if (!arr[i][j]) cellClass = 'empty'
+            else if (arr[i][j].reserved) cellClass = 'reserved'
+            else cellClass = selected.some(elem => elem === arr[i][j].id) ? 'selected' : 'free';
             const value = arr[i][j] ? arr[i][j].id : Math.random();
+
             row[j] = <td className = {cellClass} onClick = {cellClass === 'free' ? handleClick : undefined} 
              value = {value} key = {value}></td>;
         } 
-       hall.push(<tr key = {i}>{row}</tr>);               
+        hall.push(<tr key = {i}>{row}</tr>);               
     }
 
     return (

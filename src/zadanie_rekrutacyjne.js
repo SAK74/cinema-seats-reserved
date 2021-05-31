@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Reservation from './features/reservation/reservation';
+import Reservation from './features/reservation/reservationStart';
 import './CSS/main.css';
 import { FetchRequest } from './features/reservation/fetching';
 import Summary from './features/summary';
@@ -21,7 +21,6 @@ export function Main(){
                     </Route>
                 </Switch>
             </Router>
-            
         </>
     )
 }

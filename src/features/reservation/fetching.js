@@ -14,8 +14,8 @@ export function FetchRequest(){
         }
     }, [dispatch, status]);
     
-    if (status === 'loading') return <div>... ładuje </div>
-    else if (status === 'failed') return <div>{error}</div>
+    if (status === 'loading') return <div className = "message">... ładuje </div>
+    else if (status === 'failed') return <div className = "message">{error}</div>
     else if (status === 'complete') return <ShowHall/>;
     return null;
 }

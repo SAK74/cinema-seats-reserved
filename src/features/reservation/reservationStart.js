@@ -11,7 +11,7 @@ export default function Reservation() {
             case 'number' : setAmount(ev.target.value); break;
         }
     }
-
+    
     return(
         <div className = 'mainField'>
             <fieldset>
@@ -19,8 +19,11 @@ export default function Reservation() {
                 <input id = 'seats counts' type = "number" value = {amount} onChange = {handleChange}/> <br/><br/>
                 <input checked = {near} id = 'check' type = "checkbox" onChange = {handleChange}/>
                 <label htmlFor = 'check'>&nbsp; Czy mają być obok siebie</label><br/><br/>
-                {amount && <Link className = 'select-button' to = {`/show/${amount}/${near}`}>Wybierz miejsca</Link>}
+                <ButtonSubmit isDisabled = {Boolean(!amount)} text = "Wybierz miejsca" to = {`/show/${amount}/${near}`}/>
             </fieldset>
         </div>
     );
 }
+
+const ButtonSubmit = ({isDisabled, text, to}) => isDisabled ? <button className = "hidden-button">{text}</button> :
+    <Link className = "select-button" to = {to}>{text}</Link>;

@@ -7,8 +7,8 @@ fieldset {
   margin-top: 100px;
 }
 
-.select-button {
-  width: 200px;
+.select-button, .hidden-button {
+  width: 160px !important;
   padding: 10px;
   border: thin solid black;
   text-decoration: none;
@@ -16,6 +16,18 @@ fieldset {
   color: rebeccapurple;
   font: 400 13.3333px Arial;
   text-align: center;
+  border-radius: 5px;
+}
+
+.hidden-button {
+  opacity: 0.5;
+}
+
+.message {
+  text-align: center;
+  margin-top: 80px;
+  color: #ff6666;
+  font-size: 2em;
 }
 
 .mainTable {
