@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Reservation() {
-    const [amount, setAmount]  = useState();
+    const [amount, setAmount]  = useState("");
     const [near, setNear] = useState(false);
 
     const handleChange = ev => {
@@ -14,13 +14,16 @@ export default function Reservation() {
     
     return(
         <div className = 'mainField'>
-            <fieldset>
-                <label htmlFor = 'seats count'>Liczba miejsc: &nbsp;</label>
-                <input id = 'seats counts' type = "number" value = {amount} onChange = {handleChange}/> <br/><br/>
-                <input checked = {near} id = 'check' type = "checkbox" onChange = {handleChange}/>
-                <label htmlFor = 'check'>&nbsp; Czy mają być obok siebie</label><br/><br/>
-                <ButtonSubmit isDisabled = {Boolean(!amount)} text = "Wybierz miejsca" to = {`/show/${amount}/${near}`}/>
-            </fieldset>
+            <form onSubmit = {ev => ev.preventDefault()}>
+                <fieldset>
+                    <label htmlFor = 'seats count'>Liczba miejsc: &nbsp;</label>
+                    <input id = 'seats counts' type = "number" value = {amount} onChange = {handleChange}/> <br/><br/>
+                    <input checked = {near} id = 'check' type = "checkbox" onChange = {handleChange}/>
+                    <label htmlFor = 'check'>&nbsp; Czy mają być obok siebie</label><br/><br/>
+                    <ButtonSubmit isDisabled = {Boolean(!amount)} text = "Wybierz miejsca" to = {`/show/${amount}/${near}`}/>
+                </fieldset>
+            </form>
+            
         </div>
     );
 }
