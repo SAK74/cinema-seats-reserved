@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Reservation from './features/reservation/reservationStart';
 import './CSS/main.css';
 import { FetchRequest } from './features/reservation/fetching';
-import Summary from './features/summary';
+import Summary from './features/reservation/summary';
 
 export function Main(){
     return(
